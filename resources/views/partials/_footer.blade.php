@@ -3,14 +3,14 @@
         <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
     </div>
 
-    <script src="{{ asset('assets/js/vendor/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/vendor/jquery-2.2.4.min.js') }}"></script>
     <!-- bootstrap 4 js -->
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.slicknav.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/jquery.slicknav.min.js') }}"></script>
 
     <!-- start chart js -->
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js') }}"></script>
@@ -23,12 +23,12 @@
         ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
     </script>
     <!-- all line chart activation -->
-    <script src="{{ asset('assets/js/line-chart.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/line-chart.js') }}"></script>
     <!-- all pie chart -->
-    <script src="{{ asset('assets/js/pie-chart.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/pie-chart.js') }}"></script>
     <!-- others plugins -->
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('/public/assets/js/scripts.js') }}"></script>
 
     @yield('scripts')
 </footer>
