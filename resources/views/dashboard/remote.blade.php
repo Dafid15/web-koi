@@ -1,29 +1,4 @@
 @extends('layouts.maste')
-@section('content')
-    <div class="sales-report-area mt-5 mb-5">
-        <div class="row">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-6 col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <img src="{!! asset('public/img/waterpump.png') !!}">
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        {{--<button type="submit" class="button-flat" onclick="confirmData()">Remote</button>--}}
-                        <button type="submit" class="button-flat" onclick="confirmData()">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-@endsection
 @section('style')
     <style>
         .button-flat {
@@ -40,14 +15,90 @@
         .button-flat:active {
             background: #550000;              /* ubah background saat button ditekan */
         }
+        #artiststhumbnail a img {
+            display : block;
+            margin : auto;
+        }
+        img.center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        .button-center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 @endsection
+@section('content')
+    <div class="sales-report-area mt-5 mb-5">
+        <div class="row">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        @if($status==0 ||$status=='0')
+                            <img src="{{asset('public/img/off.png')}}" height="300px" width="300px" class="center" border="1" />
+
+                        @else
+                            <img src="{{asset('public/img/on.png')}}" height="300px" width="300px" class="center" border="1" />
+
+
+                        @endif
+                    </div>
+                        <div class="row">
+                            <p align="center">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td><b>Status Sensor</b></td>
+                                    <td>
+                                        @if($status==0 ||$status=='0')
+                                            <button class='btn btn-danger'>OFF</button>
+                                        @else
+                                            <button class='btn btn-success'>ON</button>
+
+                                        @endif
+                                    </td>
+                                    <td>
+
+                                        <div style="text-align: center">
+                                            @if($status==0 ||$status=='0')
+                                                <input type="hidden" id="status" value="1">
+                                                <button type="submit" class="btn btn-success button-center" onclick="confirmData()">Nyalakan</button>
+                                            @else
+                                                <input type="hidden" id="status" value="0">
+                                                <button type="submit" class="btn btn-danger button-center" onclick="confirmData()">Matikan</button>
+
+                                            @endif
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            </p>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+@endsection
+
 
 @section('scripts')
     <script type="text/javascript">
         function confirmData() {
             var data= new FormData();
-            data.append("status",1);
+            var value=$("#status").val();
+            data.append("status",value);
             modalConfirm("Konfirmasi", "Apakah Anda Yakin Ingin Menyalakan Pompa?", function () {
                 ajaxTransfer("/status-remote", data, "#modal-output");
             })

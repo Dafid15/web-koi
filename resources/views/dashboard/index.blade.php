@@ -98,20 +98,12 @@
                 success: function (data) {
                     $("#averagepH").text(data.averagepH.toFixed(2));
                     $("#averageSuhu").text(data.averageSuhu.toFixed(2));
+                    $("#status").text(data.alert);
                     grafikPH(data.pHdata);
                     grafikSuhu(data.SuhuData);
                 }
             });
-            $.ajax({
-                type: 'GET',
-                url: "{{url('/StatusJson')}}",
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    $("#status").text(data);
 
-                }
-            });
 
             setInterval(function () {
                 $.ajax({
@@ -121,6 +113,7 @@
                     success: function (data) {
                         $("#averagepH").text(data.averagepH.toFixed(2));
                         $("#averageSuhu").text(data.averageSuhu.toFixed(2));
+                        $("#status").text(data.alert);
                         grafikPH(data.pHdata);
                         grafikSuhu(data.SuhuData);
                     }

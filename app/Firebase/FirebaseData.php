@@ -29,6 +29,7 @@ class FirebaseData
             $currentData[]=str_replace('pH','',str_replace(' ','',$item));
             $sumData+=floatval(str_replace('pH','',str_replace(' ','',$item)));
         }
+
         $average=$sumData/count($currentData);
         $params=[
             'averageData'=>$average,
@@ -53,6 +54,12 @@ class FirebaseData
         ];
         return $params;
     }
+
+    public  static  function getStatus(){
+        $firebase = new \Firebase\FirebaseLib(self::DEFAULT_URL, self::DEFAULT_TOKEN);
+        $data2 = json_decode($firebase->get(self::DEFAULT_PATH3 ));
+        return $data2;
+    }
     public static function getRemote($pushData){
         $data=[
             'status'=>$pushData
@@ -60,6 +67,6 @@ class FirebaseData
         $firebase = new \Firebase\FirebaseLib(self::DEFAULT_URL, self::DEFAULT_TOKEN);
         $data2 = json_decode($firebase->get(self::DEFAULT_PATH3 ));
         $statuspush=json_encode($firebase->update(self::DEFAULT_PATH3,$data));
-        dd($data2);
+        return $statuspush;
     }
 }
