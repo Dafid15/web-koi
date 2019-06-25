@@ -19,4 +19,12 @@
     <link rel="stylesheet" href="{{ asset('/public/assets/css/responsive.css') }}">
     <!-- modernizr css -->
     <script src="{{ asset('/public/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    {{-- tambahan--}}
+    <script src="{{ asset('public/assets/corelib/core.js') }}"></script>
+    <link href="{{asset('public/assets/corelib/ajax.css')}}" rel="stylesheet" type="text/css">
+    <script>
+        baseURL = '{{url("/")}}';
+    </script>
+    <input type='hidden' name='_token' value='{{ csrf_token() }}'>
+    @yield('style')
 </head>

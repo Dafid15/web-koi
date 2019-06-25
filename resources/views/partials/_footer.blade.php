@@ -31,4 +31,5 @@
     <script src="{{ asset('/public/assets/js/scripts.js') }}"></script>
 
     @yield('scripts')
+
 </footer>

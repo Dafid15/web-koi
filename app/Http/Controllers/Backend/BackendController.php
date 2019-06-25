@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Firebase\FirebaseData;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Kreait\Firebase;
+
 class BackendController extends Controller
 {
     public function index(Request $request){
@@ -78,5 +80,14 @@ class BackendController extends Controller
             }
         }
         return json_encode($status);
+    }
+    public function remotedevice(){
+        return view('dashboard.remote');
+    }
+    public function statusremote(Request $request){
+        $status= $request->input('status');
+        $pushdata=FirebaseData::getRemote($status);
+        return $pushdata;
+
     }
 }

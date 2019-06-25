@@ -9,7 +9,7 @@
                         <div class="icon"></div>
                         <div class="s-report-title d-flex justify-content-between">
                             <h4 class="header-title mb-0">Keadaan Air</h4>
-                            <p>24 H</p>
+                            {{--<p>24 H</p>--}}
                         </div>
                         <div class="d-flex justify-content-between pb-2">
                             <h2 id="status"> </h2>
@@ -25,7 +25,7 @@
                         <div class="icon"></div>
                         <div class="s-report-title d-flex justify-content-between">
                             <h4 class="header-title mb-0">Temperatur</h4>
-                            <p>24 H</p>
+                            {{--<p>24 H</p>--}}
                         </div>
                         <div class="d-flex justify-content-between pb-2">
                             <h2 id="averageSuhu"> </h2>
@@ -41,7 +41,7 @@
                         <div class="icon"></div>
                         <div class="s-report-title d-flex justify-content-between">
                             <h4 class="header-title mb-0">Kadar Asam</h4>
-                            <p>24 H</p>
+                            {{--<p>24 H</p>--}}
                         </div>
                         <div class="d-flex justify-content-between pb-2">
                             <h2 id="averagepH"></h2>
@@ -154,7 +154,7 @@
                     text: ''
                 },
                 xAxis: {
-                    categories: [2019],
+                    //categories: [2019],
                     labels: {
                         rotation: 0,
                         align: 'right',
@@ -206,7 +206,7 @@
                     text: ''
                 },
                 xAxis: {
-                    categories: [2019],
+                    //categories: [2019],
                     labels: {
                         rotation: 0,
                         align: 'right',
@@ -220,7 +220,7 @@
                     enabled: true
                 },
                 series: [{
-                    "name":"ph",
+                    "name":"Suhu",
                     "data": arrayData
 
                 },
