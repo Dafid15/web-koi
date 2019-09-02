@@ -5,11 +5,15 @@ namespace App\Http\Controllers\Backend;
 use App\Firebase\FirebaseData;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Kreait\Firebase;
 
 class BackendController extends Controller
 {
     public function index(Request $request){
+        if(empty(Session::get('activeUser'))){
+            return redirect('/login');
+        }
         $data=FirebaseData::getPH();
         $data2=FirebaseData::getSuhu();
         $params=[
@@ -21,7 +25,8 @@ class BackendController extends Controller
 
         return view('dashboard.index',$params);
     }
-    public function pHJson(Request $request){
+
+    public function pHJson(){
         $data=FirebaseData::getPH();
         $data2=FirebaseData::getSuhu();
         $currentData=[];
@@ -54,50 +59,29 @@ class BackendController extends Controller
     }
     public function StatusJson($value1,$value2){
 
-        if((0<=$value1) &&(2<=$value1)){
-            if ((0<=$value2) &&(14<=$value2)){
-                 $status="danger";
-            }
-            elseif ((15<=$value2) &&(30<=$value2)){
-                $status="warning";
-            }
-            else{
-                $status="danger";
-            }
+        if((($value1>=0)&&($value1)<=2)&&(($value2>=0)&&($value2<=13))){
+            $status="danger";
+        }elseif ((($value1>=3)&&($value1<=6))&&(($value2>=14)&&($value2<=30))){
+            $status="warning";
+        }elseif ((($value1>=0)&&($value1<=2))&&(($value2>=14)&&($value2<=30))){
+            $status="warning";
+        }elseif ((($value1>=3)&&($value1<=6))&&(($value2>=0)&&($value2<=13))){
+            $status="danger";
+        }elseif ((($value1>6)&&($value1<=10))&&(($value2>=0)&&($value2<=13))){
+            $status="warning";
+        }elseif ((($value1>6)&&($value1<=10))&&(($value2>=14)&&($value2<=30))){
+            $status="normal";
+        }elseif ((($value1>6)&&($value1<=10))&&(($value2>=31)&&($value2<=100))){
+            $status="warning";
         }
-        elseif ((3<=$value1) &&(6<=$value1)){
-            if ((0<=$value2) &&(14<=$value2)){
-                $status="danger";
-            }
-            elseif ((15<=$value2) &&(30<=$value2)){
-                $status="warning";
-            }
-            else{
-                $status="danger";
-            }
+        elseif((($value1>=11)&&($value1<=14))&&(($value2>=0)&&($value2<=13))){
+            $status="danger";
+        }elseif((($value1>=11)&&($value1<=14))&&(($value2>=14)&&($value2<=30))){
+            $status="warning";
+        }else{
+            $status="warning";
         }
-        elseif ((7<=$value1) &&(10<=$value1)){
-            if ((0<=$value2) &&(14<=$value2)){
-                $status="warning";
-            }
-            elseif ((15<=$value2) &&(30<=$value2)){
-                $status="normal";
-            }
-            else{
-                $status="warning";
-            }
-        }
-        elseif ((11<=$value1) &&(14<=$value1)){
-            if ((0<=$value2) &&(14<=$value2)){
-                $status="danger";
-            }
-            elseif ((15<=$value2) &&(30<=$value2)){
-                $status="warning";
-            }
-            else{
-                $status="danger";
-            }
-        }
+
         return $status;
     }
     public function remotedevice(){

@@ -1,18 +1,21 @@
 @extends('layouts.master')
 @section('content')
-
-    <div class="sales-report-area mt-5 mb-5">
+<?php
+ $page = 'index';
+ ?>
+<div class="">
+    <div class="mt-5 mb-5">
         <div class="row">
-            <div class="col-md-4">
-                <div class="single-report mb-xs-30">
+            <div class="col-md-4 ">
+                <div class="single-report mb-xs-30 main-section bg-white mt-2 water-condition">
                     <div class="s-report-inner pr--20 pt--30 mb-3">
                         <div class="icon"></div>
                         <div class="s-report-title d-flex justify-content-between">
-                            <h4 class="header-title mb-0">Keadaan Air</h4>
+                            <p class="title-card mb-0">Keadaan Air</p>
                             {{--<p>24 H</p>--}}
                         </div>
-                        <div class="d-flex justify-content-between pb-2">
-                            <h2 id="status"> </h2>
+                        <div class="d-flex justify-content-between pb-2 mt-2">
+                            <b><p class="title-child" id="status"> </p></b>
                             {{--<span>--</span>--}}
                         </div>
                     </div>
@@ -20,15 +23,15 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="single-report mb-xs-30">
+                <div class="single-report mb-xs-30 main-section bg-white mt-2 water-condition">
                     <div class="s-report-inner pr--20 pt--30 mb-3">
                         <div class="icon"></div>
                         <div class="s-report-title d-flex justify-content-between">
-                            <h4 class="header-title mb-0">Temperatur</h4>
+                            <p class="title-card mb-0">Temperatur</p>
                             {{--<p>24 H</p>--}}
                         </div>
-                        <div class="d-flex justify-content-between pb-2">
-                            <h2 id="averageSuhu"> </h2>
+                        <div class="d-flex justify-content-between pb-2 mt-2 ">
+                            <b><p class="title-child" id="averageSuhu"> </p></b>
                             {{--<span> 27</span>--}}
                         </div>
                     </div>
@@ -36,15 +39,15 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="single-report">
+                <div class="single-report main-section bg-white mt-2 water-condition">
                     <div class="s-report-inner pr--20 pt--30 mb-3">
                         <div class="icon"></div>
                         <div class="s-report-title d-flex justify-content-between">
-                            <h4 class="header-title mb-0">Kadar Asam</h4>
-                            {{--<p>24 H</p>--}}
+                            <p class="title-card mb-0">Kadar Asam</p>
+                            {{--<p class="title-child">24 H</p>--}}
                         </div>
-                        <div class="d-flex justify-content-between pb-2">
-                            <h2 id="averagepH"></h2>
+                        <div class="d-flex justify-content-between pb-2 mt-2">
+                            <b><p class="title-child" id="averagepH"></p></b>
                             {{--<span>7</span>--}}
                         </div>
                     </div>
@@ -54,12 +57,12 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row main-section bg-white">
         <div class="col-xl-6 col-lg-6">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="header-title mb-0">PH</h4>
+                        <p class="title-card mb-0">PH</p>
                         {{--<select class="custome-select border-0 pr-3">--}}
                         {{--<option selected>Last 24 Hours</option>--}}
                         {{--<option value="0">01 July 2018</option>--}}
@@ -73,7 +76,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="header-title mb-0">Suhu</h4>
+                        <p class="title-card mb-0">Suhu</p>
                         {{--<select class="custome-select border-0 pr-3">--}}
                         {{--<option selected>Last 24 Hours</option>--}}
                         {{--<option value="0">01 July 2018</option>--}}
@@ -83,8 +86,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+</div>
 
 @endsection
 @section('scripts')
@@ -157,6 +160,27 @@
                         }
                     }
                 },
+                yAxis:{
+                    plotLines: [{
+                        color: 'red',
+                        dashStyle: 'shortdash',
+                        value: 5.0,
+                        width: 2,
+                        label:{
+                            text:'batas bawah'
+                        }
+                    },
+                        {
+                            color: 'red',
+                            dashStyle: 'shortdash',
+                            value: 10.0,
+                            width: 2,
+                            label:{
+                                text:'batas atas'
+                            }
+                        }
+                    ],
+                },
                 legend: {
                     enabled: true
                 },
@@ -165,10 +189,10 @@
                     "data": arrayData
 
                 },
-                    //     {
-                    //     "name":"wanita",
-                    //     "data":[229,340,337]
-                    // }
+                     //     {
+                     //     "name":"batas-ph",
+                     //     "data":limitedpH
+                     // }
                 ]
             });
         }
@@ -207,7 +231,28 @@
                             fontSize: '10px',
                             fontFamily: 'Verdana, sans-serif'
                         }
-                    }
+                    },
+                },
+                yAxis:{
+                    plotLines: [{
+                        color: 'red',
+                        dashStyle: 'shortdash',
+                        value: 30.0,
+                        width: 2,
+                        label:{
+                            text:'batas bawah'
+                        }
+                    },
+                        {
+                            color: 'red',
+                            dashStyle: 'shortdash',
+                            value: 14.0,
+                            width: 2,
+                            label:{
+                                text:'batas atas'
+                            }
+                        }
+                    ],
                 },
                 legend: {
                     enabled: true
@@ -217,10 +262,10 @@
                     "data": arrayData
 
                 },
-                    //     {
-                    //     "name":"wanita",
-                    //     "data":[229,340,337]
-                    // }
+                     //     {
+                     //     "name":"batas-suhu",
+                     //     "data":[]
+                     // }
                 ]
             });
         }

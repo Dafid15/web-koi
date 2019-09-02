@@ -21,3 +21,6 @@ Route::get('/pHJson','Backend\BackendController@pHJson');
 Route::get('/StatusJson','Backend\BackendController@StatusJson');
 Route::get('remote-device','Backend\BackendController@remotedevice');
 Route::post('status-remote','Backend\BackendController@statusremote');
+Route::post('validate-login','Backend\LoginController@login');
+Route::get('login','Backend\LoginController@index');
+Route::get('/logout','Backend\LoginController@logout');

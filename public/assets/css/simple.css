@@ -1,0 +1,394 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+body {
+  overflow-x: hidden;
+  background: #F6F6F6;
+}
+.background{
+  background: linear-gradient(to top right, rgb(135, 221, 255) 0%, rgb(0, 137, 228) 100%);
+  height:18em;
+  z-index: 0;
+}
+.main-section{
+  padding: 2em;
+  border-radius: 10pt;
+  box-shadow: 10px 10px 23px 0px rgba(194, 194, 194, 0.31);
+}
+.content{
+  z-index: 9999999;
+  margin-top: -18em;
+  margin-bottom: 3rem;        
+}
+nav{
+  /* margin-bottom: 13em; */
+}
+.title-card{
+  font-family: 'Raleway', sans-serif;
+  color: rgb(54, 54, 54);
+  font-size: 20pt;
+}
+.title-child{
+  font-family: 'Raleway', sans-serif;
+  color: #414141;
+  font-size: 18pt;
+
+}
+.breadcrumb{
+  padding: 0;
+  margin-top: 0;
+}
+.breadcrumb-active{
+  color: yellow;
+}
+p,li,a,h1{
+  font-family: 'Raleway', sans-serif;
+}
+.card-biru{
+  width : 90%;
+  height: 9em;
+  border-radius: 11px;
+  /* background:#7C88F3 ; */
+  background: linear-gradient(to top right, #8994f1 0%, #1482db 100%);
+  box-shadow: 10px 10px 23px 0px rgba(124,136,243,0.31);
+  padding-left: 1em;
+  margin-top: .5em;
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.card-biru:hover{
+  width: 100%;
+  margin-top: -1vh;
+  box-shadow: 10px 10px 23px 0px rgba(124,136,243,0.9); 
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.card-hijau{
+  width : 90%;
+  height: 9em;
+  border-radius: 11px;
+  background: linear-gradient(to top right, #87E59A 0%, rgb(67, 173, 88) 100%);
+  box-shadow: 10px 10px 23px 0px rgba(135, 229, 154,0.31);
+  padding-left: 1em;
+  margin-top: .5em;
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.card-hijau:hover{
+  width: 100%;
+  margin-top: -1vh;
+  box-shadow: 10px 10px 23px 0px rgba(135, 229, 154,0.9);
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+
+}
+.card-kuning{
+  width : 90%;
+  height: 9em;
+  border-radius: 11px;
+  background:#FFF711 ;
+  background: linear-gradient(to top right, #FFF711 0%, #d4ce12 100%);
+  box-shadow: 10px 10px 23px 0px rgba(255, 247, 17, 0.31);
+  padding-left: 1em;
+  margin-top: .5em;
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.card-kuning:hover{
+  width: 100%;
+  margin-top: -1vh;
+  box-shadow: 10px 10px 23px 0px rgba(255, 247, 17, 0.31);
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.card-red{
+  width : 90%;
+  height: 9em;
+  border-radius: 11px;
+  /* background:#FF7E7E; */
+  background: linear-gradient(to top right, #FF7E7E 0%, #b62d2d 100%);
+  box-shadow: 10px 10px 23px 0px rgba(255,126,126,0.31);
+  padding-left: 1em;
+  margin-top: .5em;
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.card-red:hover{
+  width: 100%;
+  margin-top: -1vh;
+  box-shadow: 10px 10px 23px 0px rgba(255,126,126,0.9);
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.card-number{
+  font-size: 45pt;
+}
+.card-table{
+  margin-top: 2em;
+  width: 100%;
+  height: auto;
+  border-radius: 11px;
+  background:#FBFBFB;
+  box-shadow: 10px 10px 23px 0px rgba(219,219,219,0.31);
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-bottom: 2em;
+}
+.monitoring-title{
+  width: 98%;
+  height: 1.5em;
+  border-radius: 11px;
+  background:transparent;
+  padding-left: 1em;
+  border-left-color:#921212;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-style: solid;
+  font-size: 20pt;
+  color: #921212;
+}
+.card-average{
+  width: 98%;
+  height: 4em;
+  border-radius: 11px;
+  background:white;
+  box-shadow: 10px 10px 23px 0px rgba(219,219,219,0.31);
+  padding-left: 1em;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  margin-left: 0;
+}
+.temp-average{
+  width: 100%;
+  height: 4em;
+  border-radius: 11px;
+  background:white;
+  padding-left: 1em;
+  border-left-color: #7C88F3;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-style: solid;
+}
+.hr-average{
+  width: 100%;
+  height: 4em;
+  border-radius: 11px;
+  background:white;
+  padding-left: 1em;
+  border-left-color: #FF7E7E;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-style: solid;
+}
+.temp-hr{
+font-size: 30px;
+}
+#sidebar-wrapper {
+  background-color: #FBFBFB;
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+  z-index: 2;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-top: 2em; 
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+  padding-left:2em; 
+  padding-right: 2em;
+  border-radius: 8px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+.border-foto{
+  border-radius: 50%;
+  width: 6em;
+  height: 6em;
+  border-bottom-color: yellow;
+  border-right-color: yellow;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-width: 3px;
+  border-style: solid;
+  text-align: center;
+  padding-top: .3em;
+  margin-left: 2em;
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.border-foto:hover{
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-left-color: yellow;
+  border-top-color: yellow;
+  transition: all .5s ease-in-out;
+  transition-delay: .1s;
+}
+.foto{
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+}
+.caption-foto{
+  font-size: 12pt;
+  text-align: center;
+}
+.cowlist-icon{
+  width: 2em;
+  margin-top: 1em;
+}
+.cowlist-icon2{
+  width: 1.2em;
+  margin-top: 1em;
+}
+.menu{
+color:#707070;
+background-color: transparent;
+text-align: center;
+}
+.btn-menu{
+  color:#707070;
+  height: 6em;
+  width: 100%;
+}
+.btn-menu:hover{
+/* background: linear-gradient(to top right, rgb(58, 150, 94) 0%, rgb(12, 146, 122) 100%); */
+background: #707070;
+color: #F6F6F6;
+}
+.active-menu{
+  background: linear-gradient(to top right, rgb(61, 172, 216) 0%, rgb(0, 137, 228) 100%);
+  color: #F6F6F6;
+  }
+.status-monitoring{
+  font-size: 10pt;
+}
+#regForm {
+  font-family: Raleway;
+  padding: 40px;
+  width: 100%;
+}
+
+.input-question {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+.input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+.button-question {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+.button-question:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+.formtraining{
+  margin: 2em;
+}
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  /* border: 1px solid #ccc; */
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.bg-label{
+  color: #707070;
+  font-size: 50pt;
+}
+.bg-label:hover{
+  font-size: 60pt;
+  margin-top: -2vh;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+  
+}
+
+@media (max-width: 767.98px) {
+  .btn-stream,.btn-filter{
+    width: 100%;
+    text-align: center;
+  }
+  .chartcontainer{
+    height: 20em;
+  }
+  
+}

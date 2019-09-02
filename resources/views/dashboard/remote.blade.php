@@ -1,47 +1,63 @@
-@extends('layouts.maste')
-@section('style')
-    <style>
-        .button-flat {
-            border: 1px solid #801515;        /* border: tebal[px] tipe[solid,dashed,dotted] warna[#hex, rgb()]; */
-            background-color: #801515;        /* ubah warna background */
-            color: #FFFFFF;                   /* ubah warna font */
-            font-size: 16px;                  /* ubah ukuran font */
-            padding: 0.5em 1em 0.5em 1em;     /* padding: top right bottom left; */
-            position: center;
-        }
-        .button-flat:hover {
-            opacity: 0.8;                     /* ubah tingkat transparansi saat cursor menuju button. 0.0 s.d 1.0 */
-        }
-        .button-flat:active {
-            background: #550000;              /* ubah background saat button ditekan */
-        }
-        #artiststhumbnail a img {
-            display : block;
-            margin : auto;
-        }
-        img.center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-
-        }
-        .button-center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-@endsection
+@extends('layouts.master')
 @section('content')
-    <div class="sales-report-area mt-5 mb-5">
+    <!-- <div class="sales-report-area mt-5 mb-5">
         <div class="row">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-6 col-lg-6">
+    </div> -->
+    <?php
+    $page = 'remote';
+    ?>
+    <div class="row main-section bg-white">
+        <div class="status-bar">
+            <center>
+                <p style="font-size:20pt;">Water Pump <b>Control System</b></p>
+            </center>
+        </div>
+        <div class="col-xl-12 col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class=" ">
+                        @if($status==0 ||$status=='0')
+                            <div class="row"> 
+                                <div class="col-sm-12">
+                                    <input type="hidden" id="status" value="1">
+                                    <button type="submit" class="btn button-pump-off button-center" onclick="confirmData()">
+                                        <!-- <img src="{{asset('public/img/off.png')}}" height="300px" width="300px" class="center" border="1" /> -->
+                                        <i class="fas fa-power-off fa-5x text-white"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <center>
+                                        <div class="status">
+                                            <p>Water Pump Status :<b> OFF </b></p>
+                                        </div>
+                                    </center>
+                                </div> 
+                            </div>
+                            
+                        @else
+                            <div class="row"> 
+                                <div class="col-sm-12">
+                                    <input type="hidden" id="status" value="0">
+                                    <button type="submit" class="btn button-pump-on button-center" onclick="confirmData()">
+                                        <!-- <img src="{{asset('public/img/on.png')}}" height="300px" width="300px" class="center" border="1" /> -->
+                                        <i class="fas fa-power-off fa-5x text-white"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">                                
+                                    <center>
+                                        <div class="status">
+                                            <p>Water Pump Status :<b> ON </b></p>
+                                        </div>
+                                    </center>
+                                </div>
+                            </div>
+                        @endif
+<!--                     
                         @if($status==0 ||$status=='0')
                             <img src="{{asset('public/img/off.png')}}" height="300px" width="300px" class="center" border="1" />
 
@@ -49,8 +65,8 @@
                             <img src="{{asset('public/img/on.png')}}" height="300px" width="300px" class="center" border="1" />
 
 
-                        @endif
-                    </div>
+                        @endif -->
+                    <!-- </div>
                         <div class="row">
                             <p align="center">
                             <table class="table table-bordered">
@@ -58,9 +74,9 @@
                                     <td><b>Status Sensor</b></td>
                                     <td>
                                         @if($status==0 ||$status=='0')
-                                            <button class='btn btn-danger'>OFF</button>
+                                            <button class='btn btn-danger'>Matikan</button>
                                         @else
-                                            <button class='btn btn-success'>ON</button>
+                                            <button class='btn btn-success'>Nyalakan</button>
 
                                         @endif
                                     </td>
@@ -82,7 +98,7 @@
                             </p>
                         </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -99,7 +115,7 @@
             var data= new FormData();
             var value=$("#status").val();
             data.append("status",value);
-            modalConfirm("Konfirmasi", "Apakah Anda Yakin Ingin Menyalakan Pompa?", function () {
+            modalConfirm("Konfirmasi", "Apakah Anda Yakin ?", function () {
                 ajaxTransfer("/status-remote", data, "#modal-output");
             })
         }

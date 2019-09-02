@@ -1,6 +1,6 @@
 <footer>
     <div class="footer-area">
-        <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
+        <!-- <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p> -->
     </div>
 
     <script src="{{ asset('/public/assets/js/vendor/jquery-2.2.4.min.js') }}"></script>
