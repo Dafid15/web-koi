@@ -89,7 +89,15 @@ class BackendController extends Controller
         $params=[
             'status'=>$status->status
         ];
+        //return json_encode($params);
         return view('dashboard.remote',$params);
+    }
+    public function deviceJson(){
+        $status=FirebaseData::getStatus();
+        $params=[
+            'status'=>$status->status
+        ];
+        return json_encode($params);
     }
     public function statusremote(Request $request){
         $status= $request->input('status');
